@@ -1,87 +1,80 @@
-# Welcome to React Router!
+# ResuMetric
 
-A modern, production-ready template for building full-stack React applications using React Router.
+ResuMetric is a powerful, AI-driven resume analyzer designed to help job seekers optimize their resumes for Applicant Tracking Systems (ATS) and specific job descriptions. Built with a modern tech stack and powered by **Puter.js**, it offers detailed feedback, scoring, and actionable improvements.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+![Analyzed Resume](https://res.cloudinary.com/zainhither/image/upload/v1770726290/your_folder_name/Untitled2_cqpydv.png)
 
-## Features
+## 🚀 Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+-   **AI-Powered Analysis**: Utilizes Claude 3.5 Sonnet (via Puter.js AI) to analyze resumes against job descriptions.
+-   **ATS Scoring**: Provides a compatibility score to estimate how well a resume passes automated screening.
+-   **Detailed Feedback**: Offers specific, actionable advice on content, formatting, and keywords.
+-   **PDF to Image Conversion**: Automatically converts uploaded PDFs to high-quality images for visual reference alongside feedback.
+-   **Secure Cloud Storage**: Leveraging Puter.js File System and Key-Value Store to save resumes and analysis history securely.
+-   **Authentication**: Integrated sign-in system using Puter.js Auth.
 
-## Getting Started
+## 🛠️ Tech Stack
 
-### Installation
+-   **Frontend Framework**: [React 19](https://react.dev/) (via [React Router 7](https://reactrouter.com/))
+-   **Build Tool**: [Vite](https://vitejs.dev/)
+-   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+-   **Backend & Cloud Services**: [Puter.js](https://docs.puter.com/) (Auth, AI, File System, KV Store)
+-   **State Management**: [Zustand](https://zustand-demo.pmnd.rs/) with `puter.ts` store
+-   **PDF Processing**: [pdfjs-dist](https://mozilla.github.io/pdf.js/)
 
-Install the dependencies:
+## 📦 Prerequisites
 
-```bash
-npm install
-```
+Before you begin, ensure you have the following installed:
+-   [Node.js](https://nodejs.org/) (v20 or higher recommended)
+-   npm (usually comes with Node.js)
 
-### Development
+## 🏁 Getting Started
 
-Start the development server with HMR:
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/zaykhere/resumetric.git
+    cd resumetric
+    ```
 
-```bash
-npm run dev
-```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-Your application will be available at `http://localhost:5173`.
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
 
-## Building for Production
+4.  **Open your browser:**
+    Navigate to `http://localhost:5173` to view the application.
 
-Create a production build:
+## 🔧 How It Works
 
-```bash
-npm run build
-```
+Resumetric leverages **Puter.js** as a comprehensive backend-as-a-service:
 
-## Deployment
+1.  **Auth**: Users sign in with their Puter.js account, ensuring their data is private and persistent.
+2.  **Storage**:
+    -   **File System (`fs`)**: Uploaded resumes (PDFs) and their converted images are stored directly in the user's Puter.js cloud directory.
+    -   **KV Store (`kv`)**: Metadata (Company Name, Job Title, Analysis results) is stored in the Puter.js Key-Value key-value store (`resume:*`) for quick retrieval.
+3.  **AI Analysis (`ai` chat)**:
+    -   The app sends the resume text (extracted via privacy-preserving and efficient methods) and the job description to the AI model.
+    -   The AI evaluates the match, generating a score and structured feedback using a prompt specifically tuned for resume analysis.
 
-### Docker Deployment
+## 🤝 Contributing
 
-To build and run using Docker:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-```bash
-docker build -t my-app .
+1.  Fork the project
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+## 📄 License
 
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ using React Router.
+Built with ❤️ using [React Router](https://reactrouter.com/) and [Puter.js](https://puter.com).
